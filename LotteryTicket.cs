@@ -176,4 +176,22 @@ internal class LotteryTicket
         return numbers;
     }
 
+    /// <summary>
+    /// Return a text representation of this ticket with user details and numbers.
+    /// </summary>
+    /// <returns>Return a string representing the ticket.</returns>
+    public override string ToString() {
+
+        var tempstring = "";
+        tempstring = $"Ticket User: {TicketOwner.Name}\nPhone: {TicketOwner.PhoneNumber}  Email: {TicketOwner.Email}\n" +
+                     $"Numbers: ";
+
+        foreach (var item in TicketNumbers)
+        {
+            tempstring += $" {item} ";
+        }
+
+        return tempstring;
+    }
+
 }

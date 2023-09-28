@@ -9,9 +9,11 @@ internal class Program
         LotteryTicket ticket = new LotteryTicket(me);
         ticket.LuckyDipGenerator();
         //ticket.TicketNumbers = new List<int> { -1, 12, 22, 44, 23, 5 };
-        foreach (var item in ticket.TicketNumbers)
-        {
-            Console.WriteLine(item);
-        }
+        //foreach (var item in ticket.TicketNumbers)
+        //{
+        //    Console.WriteLine(item);
+        //}
+
+        Console.WriteLine(ticket.ToString());
     }
 }

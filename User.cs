@@ -47,10 +47,10 @@ public class User
                 {
                     throw new Exception("Email is not valid!");
                 }
-            }
-            else
-            {
-                _email = value;
+                else
+                {
+                    _email = value;
+                }
             }
         }
     }
