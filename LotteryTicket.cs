@@ -62,7 +62,14 @@ internal class LotteryTicket
     /// <param name="user">A pre-registered User</param>
     public LotteryTicket(User owner)
     {
-        _ticketowner = owner;
+        if (owner != null)
+        {
+            _ticketowner = owner;
+        }
+        else
+        {
+            throw new Exception("User does not exist!");
+        }
     }
 
 
@@ -181,6 +188,17 @@ internal class LotteryTicket
     /// </summary>
     /// <returns>Return a string representing the ticket.</returns>
     public override string ToString() {
+
+        if (_ticketowner == null)
+        {
+            throw new Exception("Invalid Ticket, Owner does not exist");
+        }
+
+        if (_ticketNumbers.Count == 0)
+        {
+            //Numbers have not been generated, run a lucky dip.
+            LuckyDipGenerator();
+        }
 
         var tempstring = "";
         tempstring = $"Ticket User: {TicketOwner.Name}\nPhone: {TicketOwner.PhoneNumber}  Email: {TicketOwner.Email}\n" +
