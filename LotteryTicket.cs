@@ -83,7 +83,14 @@ internal class LotteryTicket
     /// <param name="user">A pre-registered User</param>
     public LotteryTicket(User owner)
     {
-        _ticketowner = owner;
+        if (owner != null)
+        {
+            _ticketowner = owner;
+        }
+        else
+        {
+            throw new Exception("User does not exist!");
+        }
     }
 
 
