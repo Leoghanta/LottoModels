@@ -44,6 +44,12 @@ internal class Prize
         }
     }
 
+    /// <summary>
+    /// Generate a prise from the MatchedNumbers and a string of the current draw
+    /// </summary>
+    /// <param name="matchedNumbers">Integer representing how many numbers were matched</param>
+    /// <param name="draw">String of the draw that took place to add to the ticket.</param>
+    /// <exception cref="Exception">Exception when validation fails.</exception>
     public Prize(int matchedNumbers, string draw)
     {
         Matches = matchedNumbers;
