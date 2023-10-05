@@ -10,6 +10,8 @@ internal class LotteryTicket
 {
     private User _ticketowner;
     private List<int> _ticketNumbers = new List<int>();
+    private Prize _prize = null;
+    
 
     /// <summary>
     /// Ticket Owner setters and getters
@@ -53,6 +55,25 @@ internal class LotteryTicket
            }
             _ticketNumbers = BubbleSort(value);
             Debug.WriteLine(_ticketNumbers.ToString());
+        }
+    }
+
+    /// <summary>
+    /// Generate and store a prize.
+    /// Can only be set from inside this class.
+    /// </summary>
+    public Prize Prize
+    {
+        get
+        {
+            return _prize;
+        }
+        private set
+        {
+            if (_prize != value)
+            {
+                _prize = value;
+            }
         }
     }
 
@@ -177,21 +198,47 @@ internal class LotteryTicket
     }
 
     /// <summary>
+    /// Generate a prize. 
+    /// </summary>
+    /// <param name="matches">the number of matches</param>
+    /// <param name="draw">A string of the winning draw</param>
+    /// <exception cref="Exception">Matches not in range</exception>
+    public void generatePrize(int matches, string draw)
+    {
+        if (matches < 0 || matches > 7)
+        {
+            throw new Exception("Unknown Prize");
+        }
+        else
+        {
+            Prize = new Prize(matches, draw);
+        }
+    }
+
+
+    /// <summary>
     /// Return a text representation of this ticket with user details and numbers.
+    /// Update: If there is a draw taken place, add those details and show winnings.
     /// </summary>
     /// <returns>Return a string representing the ticket.</returns>
     public override string ToString() {
 
-        var tempstring = "";
-        tempstring = $"Ticket User: {TicketOwner.Name}\nPhone: {TicketOwner.PhoneNumber}  Email: {TicketOwner.Email}\n" +
-                     $"Numbers: ";
+        var tempstring = $"Ticket User: {TicketOwner.Name}\nPhone: {TicketOwner.PhoneNumber}  Email: {TicketOwner.Email}\n" +
+                         $"Numbers: ";
 
         foreach (var item in TicketNumbers)
         {
             tempstring += $" {item} ";
         }
 
+        if (Prize != null)
+        {
+            tempstring += $"\n{Prize.Draw}";
+            tempstring += $"\n{Prize.Winnings}";
+        }
+
         return tempstring;
     }
+
 
 }
