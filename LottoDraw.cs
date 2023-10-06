@@ -88,8 +88,8 @@ internal class LottoDraw
         {
             tempstring += $" ({item}) ";
         }
-
-        tempstring += $" Bonus: {BonusBall}";
+        
+        tempstring += $" Bonus: ({BonusBall})";
 
         return tempstring;
 

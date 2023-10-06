@@ -17,14 +17,15 @@ internal class PlayGame
     public LottoDraw draw = null;
 
 
-    /// <summary>
-    /// Create a new player from the User Interface passing in name, phone and e-mail.
-    /// </summary>
-    /// <param name="name">String of user's name</param>
-    /// <param name="phone">String of user's phone number</param>
-    /// <param name="email">String of user's email address</param>
-    /// <exception cref="Exception">Exception if validation fails.</exception>
-    public void NewPlayer(string name, string phone, string email)
+	/// <summary>
+	/// Create a new player from the User Interface passing in name, phone and e-mail.
+	/// This function will be called from ViewModel triggered by a button on the UI
+	/// </summary>
+	/// <param name="name">String of user's name</param>
+	/// <param name="phone">String of user's phone number</param>
+	/// <param name="email">String of user's email address</param>
+	/// <exception cref="Exception">Exception if validation fails.</exception>
+	public void NewPlayer(string name, string phone, string email)
     {
         if (draw != null)
         {
@@ -45,6 +46,7 @@ internal class PlayGame
 
     /// <summary>
     /// Polymorphic New Ticket for tickets from a usr who chose their numbers on the UI
+    /// This function will be called from ViewModel triggered by a button on the UI
     /// </summary>
     /// <param name="usr">USER from a drop down list</param>
     /// <param name="ball1">ball1 as integer</param>
@@ -77,16 +79,17 @@ internal class PlayGame
         }
     }
 
-    /// <summary>
-    /// Polymorphic NewTicket
-    /// Create a new Lottery Ticket for a user (selected from a drop-down list)
-    /// user has selected a lucky dip instead of picking own numbers
-    /// </summary>
-    /// <param name="usr">USER from drop down list</param>
-    /// <param name="luckyDip">True if luckydip</param>
-    /// <returns>String of ticket to send to UI</returns>
-    /// <exception cref="Exception">Exception when validation fails.</exception>
-    public string NewTicket(User usr, bool luckyDip)
+	/// <summary>
+	/// Polymorphic NewTicket
+	/// Create a new Lottery Ticket for a user (selected from a drop-down list)
+	/// user has selected a lucky dip instead of picking own numbers
+	/// This function will be called from ViewModel triggered by a button on the UI
+	/// </summary>
+	/// <param name="usr">USER from drop down list</param>
+	/// <param name="luckyDip">True if luckydip</param>
+	/// <returns>String of ticket to send to UI</returns>
+	/// <exception cref="Exception">Exception when validation fails.</exception>
+	public string NewTicket(User usr, bool luckyDip)
     {
         if (draw != null)
         {
@@ -107,13 +110,14 @@ internal class PlayGame
         }
     }
 
-    /// <summary>
-    /// Run the draw.  
-    /// Create a new lottery draw
-    /// and for each ticket, check winning numbers and generate prize.
-    /// </summary>
-    /// <exception cref="Exception">Exception if called when draw already exists.</exception>
-    public void RunDraw()
+	/// <summary>
+	/// Run the draw.  
+	/// Create a new lottery draw
+	/// and for each ticket, check winning numbers and generate prize.
+	/// This function will be called from ViewModel triggered by a RUN NOW button on the UI
+	/// </summary>
+	/// <exception cref="Exception">Exception if called when draw already exists.</exception>
+	public void RunDraw()
     {
         if (draw != null)
         {
