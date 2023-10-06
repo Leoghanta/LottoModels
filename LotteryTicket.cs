@@ -238,6 +238,7 @@ internal class LotteryTicket
             tempstring += $" {item} ";
         }
 
+        //If there is a prize there, the draw has taken place and we can reveal their results.
         if (Prize != null)
         {
             tempstring += $"\n{Prize.Draw}";
